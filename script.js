@@ -1,3 +1,5 @@
+let tasks = [];
+
 const input = document.querySelector('.input__pesquisa');
 const addButton = document.querySelector('.button__pesquisa');
 const taskList = document.querySelector('.task-list');
@@ -21,6 +23,14 @@ existingButtons.forEach(button => {
   });
 });
 
+function loadTasks() {
+  const storedTasks = localStorage.getItem('listaDeAfazeres');
+  if (storedTasks) {
+    tasks = JSON.parse(storedTasks); 
+    tasks.forEach(taskText => createTask(taskText));
+  }
+}
+
 function createTask (taskText) {
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
@@ -34,6 +44,11 @@ function createTask (taskText) {
 
   deleteButton.addEventListener('click', () => {
       taskDiv.remove();
+
+      tasks = tasks.filter(task => task !== taskText);
+
+      localStorage.setItem('listaDeAfazeres', JSON.stringify(tasks));
+
       checkEmptyTasks();
   });
 
@@ -47,9 +62,13 @@ addButton.addEventListener('click', () => {
 
   if (taskText !== '') {
     createTask(taskText);
+    tasks.push(taskText); 
+    localStorage.setItem('listaDeAfazeres', JSON.stringify(tasks)); 
     input.value = '';
     checkEmptyTasks();
   }
 });
 
 checkEmptyTasks();
+loadTasks();
+
