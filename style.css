@@ -7,3 +7,82 @@
     --grey5: #F1F3F5;
     --grey6: #F8F9FA;
 }
+
+* {
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+}
+
+h1 {
+    color: var(--grey1);
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0%;
+
+    margin-bottom: 20px;
+}
+
+.div__pesquisa {
+    position: relative;
+    display: flex;
+    gap: 0;
+    margin-bottom: 30px;
+}
+
+.input__pesquisa {   
+    background-color: var(--grey6);
+    width: 430px;
+    border: 1px solid var(--grey6);
+    border-radius: 8px;
+    flex: 1;
+    padding: 10px 80px 15px 10px; 
+}
+
+.button__pesquisa {
+    position: absolute;
+    right: 10px;
+    top: 16%;
+    padding: 5px 12px;
+    background-color: var(--brand1);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.task {
+    background-color: var(--grey5);
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin-bottom: 15px;
+}
+
+.button__task {
+    font-size: 13px;
+    background-color: var(--grey4);
+    border: none;
+    border-radius: 6px;
+    padding: 5px 5px 5px 5px;
+    cursor: pointer;
+}
+
+.anyTask__body {
+    display: none;
+    font-weight: 500;
+    font-size: 18px;
+    color: var(--grey1);
+    margin-top: 20px;
+}
